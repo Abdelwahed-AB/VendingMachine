@@ -34,7 +34,7 @@ public class VendingMachineTest {
     @ValueSource(ints = {3, 4, 6, 7})
     @DisplayName("Should throw when passed invalid coin value")
     public void should_throw_when_passed_invalid_coin_value(int coin){
-        RuntimeException exception = Assertions.assertThrows(InvalidCoinException.class, ()->vendingMachine.insertCoin(coin));
+        Assertions.assertThrows(InvalidCoinException.class, ()->vendingMachine.insertCoin(coin));
     }
 
     @Test
@@ -45,7 +45,7 @@ public class VendingMachineTest {
     }
 
     @Test
-    @DisplayName("Should thrown when user selects a product and doesn't have enough balance")
+    @DisplayName("Should throw when user selects a product and doesn't have enough balance")
     public void should_throw_when_user_selects_a_product_and_doesnt_have_enough_balance(){
         Assertions.assertThrows(InsufficientBalanceException.class, ()->vendingMachine.selectProduct(Product.WATER));
     }
